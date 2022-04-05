@@ -16,8 +16,7 @@ A useful tool to short url with speed.
 $ docker build -t shorten .
 $ docker run --rm -it -p 80:80 shorten -debug=false -addr=:80 
 ```
-
-> If build failed on OSX & Windows, please adjust your Docker VM memory. It will take ~5G Mem and 5min
+> You can use Dockerfile.compile if you want to build rocksdb your self, default is using my pre-compiled image. (but is fat as 1.8GiB)
 
 ### Benchmark
 
