@@ -6,7 +6,6 @@ import (
     "github.com/daluntw/shorten/handler"
     "github.com/gin-gonic/gin"
     "go.uber.org/zap"
-    _ "net/http/pprof"
 )
 
 var (
