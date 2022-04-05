@@ -2,6 +2,7 @@ package handler
 
 import (
     "github.com/cespare/xxhash"
+    "github.com/valyala/fastrand"
     "math/rand"
     "net/url"
     "strings"
@@ -21,7 +22,7 @@ func IDGenerate() string {
     var sb strings.Builder
 
     for i := 0; i < idLen; i++ {
-        sb.WriteRune(rune(validChar[rand.Intn(len(validChar))]))
+        sb.WriteRune(rune(validChar[fastrand.Uint32n(uint32(len(validChar)))]))
     }
 
     // use xxHash64 result as checksum
