@@ -20,27 +20,39 @@ func TestIDValidate(t *testing.T) {
     }
 }
 
+func BenchmarkIDGenerate(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        IDGenerate()
+    }
+}
+
+func BenchmarkIDValidate(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        IDValidate("tZBt0s")
+    }
+}
+
 func TestURLValidate(t *testing.T) {
 
-    if URLValidate("http:::/not.valid/a//a??a?b=&&c#hi") == false {
+    if URLValidate("http:::/not.valid/a//a??a?b=&&c#hi") != false {
         t.Error("URLValidate pass invalid url")
     }
-    if URLValidate("http//google.com") == false {
+    if URLValidate("http//google.com") != false {
         t.Error("URLValidate pass invalid url")
     }
-    if URLValidate("google.com") == false {
+    if URLValidate("google.com") != false {
         t.Error("URLValidate pass invalid url")
     }
-    if URLValidate("/foo/bar") == false {
+    if URLValidate("/foo/bar") != false {
         t.Error("URLValidate pass invalid url")
     }
-    if URLValidate("http://") == false {
+    if URLValidate("http://") != false {
         t.Error("URLValidate pass invalid url")
     }
-    if URLValidate("http://google.com") == true {
+    if URLValidate("http://google.com") != true {
         t.Error("URLValidate not pass valid url")
     }
-    if URLValidate("https://dcard.tw/f") == true {
+    if URLValidate("https://dcard.tw/f") != true {
         t.Error("URLValidate not pass valid url")
     }
 }
