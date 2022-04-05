@@ -4,10 +4,9 @@ import (
     "flag"
     "github.com/daluntw/shorten/db"
     "github.com/daluntw/shorten/handler"
-    ginzap "github.com/gin-contrib/zap"
     "github.com/gin-gonic/gin"
     "go.uber.org/zap"
-    "time"
+    _ "net/http/pprof"
 )
 
 var (
@@ -25,6 +24,8 @@ func init() {
 
     if debug == false {
         gin.SetMode(gin.ReleaseMode)
+    } else {
+        gin.SetMode(gin.DebugMode)
     }
 
     logger, err := zap.NewProduction()
@@ -45,7 +46,6 @@ func main() {
     defer c.Close()
 
     r := gin.New()
-    r.Use(ginzap.Ginzap(zap.L(), time.RFC3339, true))
     r.POST("/api/v1/urls", handler.SetHandler)
     r.GET("/:id", handler.GetHandler)
 

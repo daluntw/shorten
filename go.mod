@@ -5,7 +5,6 @@ go 1.18
 require github.com/gin-gonic/gin v1.7.7
 
 require (
-	github.com/gin-contrib/zap v0.0.2
 	github.com/linxGnu/grocksdb v1.7.0
 	go.uber.org/zap v1.21.0
 )
@@ -39,7 +38,7 @@ require (
 
 require (
 	github.com/cespare/xxhash v1.1.0
-	go.uber.org/automaxprocs v1.4.0
+	github.com/valyala/fastrand v1.1.0
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/sys v0.0.0-20220405052023-b1e9470b6e64 // indirect
 )
